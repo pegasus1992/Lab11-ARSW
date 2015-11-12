@@ -1,2 +1,0 @@
-# Lab11-ARSW
-Lab 11 ARSW
