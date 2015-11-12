@@ -2,7 +2,7 @@ Laboratorio ROCA (Resource Oriented Services Architecture)-Angular-HTML5-Js
 ===========================================================================
 
 Este ejercicio permite crear una aplicación que utiliza un servicio web
-REST que para una aplicación de *planos*.
+REST que para una aplicación de dibujo de *planos* básica.
 
 Parte I
 =======
@@ -10,16 +10,15 @@ Parte I
 Repositorio
 -----------
 
-Clone el proyecto [spring-angular-js](https://github.com/) cree una nueva cuenta.
+Clone el proyecto [spring-angular-js](https://github.com/ARSW-ECI/spring-angular-js).
 
 * Cree un nuevo repositorio utilizando la interface web de Github, en
   la pestaña de repositorios seleccione la opción de crear un nuevo
   repositorio.
 
-* Coloque un nombre y seleccione el tipo de repositorio publico (el
-  tipo de repositorio privado es pago en Github).
+* Coloque un nombre y seleccione el tipo de repositorio público.
 
-* Verifique el repositorio actual
+* Verifique el host del repositorio actual
 `````bash
 git remote -v
 `````
@@ -36,7 +35,7 @@ Revisión
 --------
 
 * Ejecute la aplicación, y revise la funcionalidad del API incluido en el mismo, accediendo a la URL 
-[/plans](http://localhost:8080/plans)
+[/blueprints](http://localhost:8080/blueprints)
 
 * Revise  el  módulo  definido  en  el  archivo  de  javascript  `appmodule.js`,  e identifique el nombre asignado al mismo.
 
@@ -142,12 +141,12 @@ Añada el código necesario para que el dibujo se grafique en el elemento `svg`.
 revise los [ejemplos](http://www.w3schools.com/svg/svg_inhtml.asp) 
 y la  referencia  completa  en [w3schools](http://www.w3schools.com/svg/svg_reference.asp).
 
-Para crear elementos dentro del tag SVG debe utilizar
+Para crear elementos dentro del tag SVG debe utilizar `createElementNS` en lugar de `createElement`:
 ```Js
 <elem> = document.createElementNS("http://www.w3.org/2000/svg","<elemento>");
 ```
 
-Utilice el siguiente código para crear atributos a un elemento `<elem>` que haya creado:
+Utilice el siguiente código para adicionar atributos a un elemento `<elem>` que haya creado:
 ```
 <elem>.setAttribute('<attr>',<value>);
 ```
