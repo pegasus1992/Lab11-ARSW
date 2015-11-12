@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Laboratorio ROCA (Resource Oriented Services Architecture)-Angular-HTML5-Js
 ===========================================================================
 
@@ -167,3 +168,7 @@ $http.post('blueprints', this.<nombredelobjeto>)
 .error(function (data, status, headers, config) {alert('error!');});
 ```
 
+=======
+# Lab11-ARSW
+Lab 11 ARSW
+>>>>>>> cb52afdd5c057f6cf8d75085e3e914c54e752ff3
