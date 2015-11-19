@@ -34,6 +34,8 @@
                 var svgContext;
                 switch (data.name) {
                     case 'rayon':
+                    case 'poligono1':
+                        //Drawing in Canvas
                         canvasContext.beginPath();
                         canvasContext.lineJoin = "round";
                         canvasContext.moveTo(data.points[0].x, data.points[0].y);
@@ -41,33 +43,30 @@
                             canvasContext.lineTo(data.points[i].x, data.points[i].y);
                         }
                         canvasContext.stroke();
+                        //Drawing in SVG
                         svgContext = document.createElementNS("http://www.w3.org/2000/svg", "polyline");
-                        svgContext.setAttribute('points', "20,20 40, 25 60,40 80, 120 120,140 200,180");
+                        var points = "";
+                        for (var i = 0; i < data.points.length; i++) {
+                            points += " " + data.points[i].x + "," + data.points[i].y;
+                        }
+                        svgContext.setAttribute('points', points);
                         svgContext.setAttribute('stroke', 'black');
+                        svgContext.setAttribute('fill', 'none');
                         svg.appendChild(svgContext);
                         break;
                     case 'larecta':
+                        //Drawing in Canvas
                         canvasContext.beginPath();
                         canvasContext.lineJoin = "round";
                         canvasContext.moveTo(data.points[0].x, data.points[0].y);
                         canvasContext.lineTo(data.points[1].x, data.points[1].y);
                         canvasContext.stroke();
+                        //Drawing in SVG
                         svgContext = document.createElementNS("http://www.w3.org/2000/svg", "line");
-                        svgContext.setAttribute('x1', 20);
-                        svgContext.setAttribute('y1', 40);
-                        svgContext.setAttribute('x2', 30);
-                        svgContext.setAttribute('y2', 50);
-                        svgContext.setAttribute('stroke', 'black');
-                        svg.appendChild(svgContext);
-                        break;
-                    case 'poligono1':
-                        canvasContext.moveTo(data.points[0].x, data.points[0].y);
-                        for (var i = 1; i < data.points.length; i++) {
-                            canvasContext.lineTo(data.points[i].x, data.points[i].y);
-                        }
-                        canvasContext.stroke();
-                        svgContext = document.createElementNS("http://www.w3.org/2000/svg", "polyline");
-                        svgContext.setAttribute('points', "200,10 250,190 160,210");
+                        svgContext.setAttribute('x1', data.points[0].x);
+                        svgContext.setAttribute('y1', data.points[0].y);
+                        svgContext.setAttribute('x2', data.points[1].x);
+                        svgContext.setAttribute('y2', data.points[1].y);
                         svgContext.setAttribute('stroke', 'black');
                         svg.appendChild(svgContext);
                         break;
